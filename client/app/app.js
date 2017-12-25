@@ -6,7 +6,8 @@ angular.module('oneMillionBooksApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngMaterial'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

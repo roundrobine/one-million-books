@@ -7,12 +7,16 @@
 
     return $resource('/api/books/:id', {
       id: '@id'
+    }, {
+      paged: {
+        method:'GET'
+      }
     });
   };
 
-  RulesService.$inject = ['$resource'];
+  BooksService.$inject = ['$resource'];
 
-  angular.module('phisheduproApp').factory('BooksService',
+  angular.module('oneMillionBooksApp').factory('BooksService',
     BooksService);
 
 }());
