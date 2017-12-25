@@ -28,75 +28,49 @@ function responseWithResult(res, statusCode) {
   };
 }
 
-function handleEntityNotFound(res) {
-  return function(entity) {
-    if (!entity) {
-      res.status(404).end();
-      return null;
-    }
-    return entity;
-  };
-}
-
-function saveUpdates(updates) {
-  return function(entity) {
-    var updated = _.merge(entity, updates);
-    return updated.saveAsync()
-      .spread(updated => {
-        return updated;
-      });
-  };
-}
-
-function removeEntity(res) {
-  return function(entity) {
-    if (entity) {
-      return entity.removeAsync()
-        .then(() => {
-          res.status(204).end();
-        });
-    }
-  };
-}
-
 // Gets a list of Books
 export function index(req, res) {
-  Book.findAsync()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-}
 
-// Gets a single Book from the DB
-export function show(req, res) {
-  Book.findByIdAsync(req.params.id)
-    .then(handleEntityNotFound(res))
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-}
+  //Create the query
+  var query = {};
 
-// Creates a new Book in the DB
-export function create(req, res) {
-  Book.createAsync(req.body)
-    .then(responseWithResult(res, 201))
-    .catch(handleError(res));
-}
-
-// Updates an existing Book in the DB
-export function update(req, res) {
-  if (req.body._id) {
-    delete req.body._id;
+  if(req.query.gender && req.query.gender.length > 0){
+    query["author.gender"] = req.query.gender;
   }
-  Book.findByIdAsync(req.params.id)
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-}
 
-// Deletes a Book from the DB
-export function destroy(req, res) {
-  Book.findByIdAsync(req.params.id)
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
+  if(req.query.genre && req.query.genre.length > 0){
+    query["genre"] = req.query.gender;
+  }
+
+  //Make sure limit and page are numbers and above 1
+  if(!req.query.limit || parseFloat(req.query.limit) < 1){
+    req.query.limit = 25;
+  }
+  if(!req.query.page || parseFloat(req.query.page) < 1){
+    req.query.page = 1;
+  }
+
+  //Create the offset (ex. page = 1 and limit = 25 would result in 0 offset. page = 2 and limit = 25 would result in 25 offset.)
+  var offset = (req.query.page - 1) * req.query.limit;
+
+  //Testing if offset is bigger then result, if yes set offset to zero
+  Book.count(query, function(err, count) {
+    if(offset > count){
+      offset = 0;
+    }
+
+    //Create object for pagination query
+    var options = {
+      select: 'name author genre publish_date',
+      sort: req.query.sortBy,
+      offset: offset,
+      limit: parseFloat(req.query.limit)
+    };
+
+    //Do the actual pagination
+    Book.paginate(query, options)
+      .then(responseWithResult(res))
+      .catch(handleError(res));
+
+  });
 }

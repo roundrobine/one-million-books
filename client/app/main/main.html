@@ -1,2 +1,16 @@
 <navbar></navbar>
-<div>This is the main view.</div>
+<div class="container-fluid">
+  <div class="row">
+  <div class="virtualRepeatdemoDeferredLoading" ng-cloak="">
+  <md-content layout="column">
+    <md-virtual-repeat-container id="vertical-container">
+      <div md-virtual-repeat="book in vm.dinamicBooks" md-on-demand class="repeated-item" flex>
+        <div class="col-md-6">{{book.name}}</div>
+        <div class="col-md-5">{{book.author.name}}</div>
+        <div class="col-md-1">{{book.author.gender}}</div>
+      </div>
+    </md-virtual-repeat-container>
+  </md-content>
+  </div>
+  </div>
+</div>
