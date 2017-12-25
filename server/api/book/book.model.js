@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
+var mongoosePaginate = require('mongoose-paginate');
 
 var BookSchema = new mongoose.Schema({
   name:{
@@ -26,5 +27,7 @@ var BookSchema = new mongoose.Schema({
     required: true
   }
 });
+
+BookSchema.plugin(mongoosePaginate);
 
 export default mongoose.model('Book', BookSchema);
