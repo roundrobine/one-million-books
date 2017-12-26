@@ -12,7 +12,7 @@ angular.module('oneMillionBooksApp')
           books: function(BooksService) {
             return BooksService.paged(
               { page: 1,
-                limit: 25,}).$promise;
+                limit: 50,}).$promise;
           }
         }
       });
