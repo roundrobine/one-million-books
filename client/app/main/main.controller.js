@@ -5,7 +5,9 @@
 
     var vm = this;
     const SORT_BY_TITLE = 'name';
-    const SORT_BY_AUTHOR_NAME = "author.name"
+    const SORT_BY_AUTHOR_NAME = "author.name";
+    vm.propToSortOn = '';
+    vm.reverse = false;
 
     // In this example, we set up our model using a class.
     // is that we implement getItemAtIndex and getLength.
@@ -19,7 +21,7 @@
       this.numItems = books.total;
 
       /** @const {number} Number of items to fetch per request. */
-      this.PAGE_SIZE = 25;
+      this.PAGE_SIZE = 50;
     };
 
     // Required.
@@ -61,6 +63,15 @@
           this.loadedPages[pageNumber] = books.docs;
         }.bind(this));
      }
+    };
+
+    vm.sort = function(keyname){
+      vm.propToSortOn = keyname;
+      vm.reverse = !vm.reverse;
+      if(vm.reverse){
+        vm.propToSortOn = '-' + vm.propToSortOn;
+      }
+      //getResultsPage($scope.currenPage);
     };
 
     vm.dinamicBooks = new DynamicItems(books);
