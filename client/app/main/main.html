@@ -1,16 +1,39 @@
 <navbar></navbar>
 <div class="container-fluid">
-  <div class="row">
-  <div class="virtualRepeatdemoDeferredLoading" ng-cloak="">
-  <md-content layout="column">
-    <md-virtual-repeat-container id="vertical-container">
-      <div md-virtual-repeat="book in vm.dinamicBooks" md-on-demand class="repeated-item" flex>
-        <div class="col-md-6">{{book.name}}</div>
-        <div class="col-md-5">{{book.author.name}}</div>
-        <div class="col-md-1">{{book.author.gender}}</div>
+    <div class="row">
+      <div class="col-md-12 sortArea">
+        <div class="form-group">
+          <md-button class="md-raised md-primary"
+                     ng-click="vm.sort('name')">Sort on Title
+            <i class="fa" ng-show="vm.propToSortOn === 'name' || vm.propToSortOn === '-name'" ng-class="{'fa-arrow-down':vm.reverse,'fa-arrow-up':!vm.reverse}"></i>
+          </md-button>
+          <md-button class="md-raised md-primary"
+                     ng-click="vm.sort('author.name')">Sort on Author
+            <i class="fa" ng-show="vm.propToSortOn==='author.name' || vm.propToSortOn==='-author.name'" ng-class="{'fa-arrow-down':vm.reverse,'fa-arrow-up':!vm.reverse}"></i>
+          </md-button>
+        </div>
       </div>
-    </md-virtual-repeat-container>
-  </md-content>
-  </div>
-  </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="row margin-lr-0 panel-heading">
+        <div class="col-md-6 text-left padding0px"><strong>Book Title</strong></div>
+        <div class="col-md-2 text-left padding0px"><strong>Book Genre</strong></div>
+        <div class="col-md-3 text-left padding0px"><strong>Author Name</strong></div>
+        <div class="col-md-1 text-left padding0px"><strong>Author Gender</strong></div>
+      </div>
+      <div class="row">
+        <div class="virtualRepeatdemoDeferredLoading" ng-cloak="">
+        <md-content layout="column">
+            <md-virtual-repeat-container id="vertical-container">
+              <div md-virtual-repeat="book in vm.dinamicBooks" md-on-demand class="repeated-item" flex>
+                <div class="col-md-6">{{book.name}}</div>
+                <div class="col-md-2">{{book.genre}}</div>
+                <div class="col-md-3">{{book.author.name}}</div>
+                <div class="col-md-1">{{book.author.gender}}</div>
+              </div>
+            </md-virtual-repeat-container>
+        </md-content>
+        </div>
+      </div>
+    </div>
 </div>
