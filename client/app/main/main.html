@@ -14,6 +14,7 @@
         </div>
       </div>
     </div>
+    <md-progress-circular md-mode="indeterminate" md-diameter="96" ng-show="vm.isLoading" class="spinner"></md-progress-circular>
     <div class="panel panel-primary">
       <div class="row margin-lr-0 panel-heading">
         <div class="col-md-6 text-left padding0px"><strong>Book Title</strong></div>
@@ -24,7 +25,7 @@
       <div class="row">
         <div class="virtualRepeatdemoDeferredLoading" ng-cloak="">
         <md-content layout="column">
-            <md-virtual-repeat-container id="vertical-container">
+            <md-virtual-repeat-container md-top-index="vm.topIndex" id="vertical-container">
               <div md-virtual-repeat="book in vm.dinamicBooks" md-on-demand class="repeated-item" flex>
                 <div class="col-md-6">{{book.name}}</div>
                 <div class="col-md-2">{{book.genre}}</div>
