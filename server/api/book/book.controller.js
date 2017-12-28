@@ -33,14 +33,27 @@ export function index(req, res) {
 
   //Create the query
   var query = {};
-
+  var sortBy = req.query.sortBy;
+  if(sortBy && sortBy.length > 0){
+      switch(sortBy) {
+        case "author.gender":
+          query["author.gender"] = sortBy;
+          break;
+        case "genre":
+          query["genre"] = sortBy;
+          break;
+        default:
+          break;
+      }
+  }
+/*
   if(req.query.gender && req.query.gender.length > 0){
     query["author.gender"] = req.query.gender;
   }
 
   if(req.query.genre && req.query.genre.length > 0){
     query["genre"] = req.query.gender;
-  }
+  }*/
 
   //Make sure limit and page are numbers and above 1
   if(!req.query.limit || parseFloat(req.query.limit) < 1){

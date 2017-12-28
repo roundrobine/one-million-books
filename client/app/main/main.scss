@@ -1,19 +1,69 @@
 .virtualRepeatdemoDeferredLoading #vertical-container {
-  height: 400px;
-  width: 100%;  }
+  height: 600px;
+}
 
 .virtualRepeatdemoDeferredLoading .repeated-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #428bca;
   box-sizing: border-box;
-  height: 60px;
+  min-height: 60px;
   padding-top: 10px; }
 
 .virtualRepeatdemoDeferredLoading md-content {
-  margin: 16px; }
+  margin-left: 16px;
+  margin-right: 16px;
+}
 
-.virtualRepeatdemoDeferredLoading md-virtual-repeat-container {
-  border: solid 1px grey; }
+/*.virtualRepeatdemoDeferredLoading md-virtual-repeat-container {
+  border: solid 1px grey; }*/
 
 .virtualRepeatdemoDeferredLoading .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
-  padding-left: 16px; }
+  padding-left: 5px; }
 
+.titlePadingRight0px{
+  padding-right: 0px !important;
+}
+
+.titlePadingLeft0px{
+  padding-left: 0px !important;
+}
+
+.padding0px {
+  padding: 0px;
+}
+
+.margin-lr-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.sortArea{
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 760px) {
+  .txt-center {
+    text-align: center;
+  }
+  .titlePadingLeft25px{
+    padding-left: 25px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .titlePadingLeft25px_smallscreen{
+    padding-left: 25px !important;
+  }
+}
+
+.repeated-item {
+  background-color: white;
+}
+
+.spinner {
+  position: absolute;
+  z-index: 1000;
+  margin-left: 50%;
+  margin-top: 27%;
+}
+
+.pointer {cursor: pointer;}
