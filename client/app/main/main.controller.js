@@ -14,7 +14,7 @@
     var DynamicItems = function() {
 
       this.pageSize = 150;
-      this.waitStep = 135;
+      this.waitStep = 120;
       this.pageNumber = 0;
       this.numLoaded = 0;
       this.toWait = 0;
@@ -37,7 +37,7 @@
     // For infinite scroll behavior, we always return a slightly higher
     // number than the previously loaded items.
     DynamicItems.prototype.getLength = function() {
-      return this.numLoaded + 35;
+      return this.numLoaded + 50;
     };
 
 
