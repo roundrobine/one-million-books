@@ -7,13 +7,6 @@ angular.module('oneMillionBooksApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'vm',
-        resolve: {
-          books: function(BooksService) {
-            return BooksService.paged(
-              { page: 1,
-                limit: 50,}).$promise;
-          }
-        }
+        controllerAs: 'vm'
       });
   });
