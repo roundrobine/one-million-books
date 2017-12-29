@@ -1,11 +1,23 @@
 <navbar></navbar>
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 sortArea">
-        <div class="form-group">
+    <div class="row margin-b-20">
 
-        </div>
+      <div class="col-md-12">
+        <form class="form-inline">
+          <div class="form-group col-md-3">
+            <label for="genres" class="col-form-label">Book Genre:</label>
+            <select id="genres" placeholder="Book Genre" ng-change="vm.filter()" class="form-control"  ng-model="vm.bookGenreSelected" ng-options="genre for genre in vm.bookGenres">
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="authorGender" class="col-form-label">Author Gender:</label>
+            <select id="authorGender" placeholder="Book Genre" ng-change="vm.filter()" class="form-control"  ng-model="vm.authorGenderSelected" ng-options="gender for gender in vm.genderOptions">
+            </select>
+          </div>
+        </form>
       </div>
+
     </div>
     <md-progress-circular md-mode="indeterminate" md-diameter="96" ng-show="vm.isLoading" class="spinner"></md-progress-circular>
     <div class="panel panel-primary">
@@ -28,7 +40,11 @@
         <md-content layout="column">
             <md-virtual-repeat-container md-top-index="vm.topIndex" id="vertical-container">
               <div md-virtual-repeat="book in vm.dinamicBooks" md-on-demand class="repeated-item" flex>
-                <div class="col-md-6">{{book.name}}</div>
+                <div class="col-md-6">
+                  {{book.name}}
+                  <span ng-if="book.lastFridayTag" class="label label-success">Last Friday</span>
+                  <span ng-if="book.halloween" class="label label-warning">Halloween</span>
+                </div>
                 <div class="col-md-2">{{book.genre}}</div>
                 <div class="col-md-3">{{book.author.name}}</div>
                 <div class="col-md-1">{{book.author.gender}}</div>
