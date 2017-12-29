@@ -4,13 +4,13 @@
 
       <div class="col-md-12">
         <form class="form-inline">
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-4">
             <label for="genres" class="col-form-label">Book Genre:</label>
             <select id="genres" placeholder="Book Genre" ng-change="vm.filter()" class="form-control"  ng-model="vm.bookGenreSelected" ng-options="genre for genre in vm.bookGenres">
             </select>
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-8">
             <label for="authorGender" class="col-form-label">Author Gender:</label>
             <select id="authorGender" placeholder="Book Genre" ng-change="vm.filter()" class="form-control"  ng-model="vm.authorGenderSelected" ng-options="gender for gender in vm.genderOptions">
             </select>
@@ -21,7 +21,7 @@
     </div>
     <md-progress-circular md-mode="indeterminate" md-diameter="96" ng-show="vm.isLoading" class="spinner"></md-progress-circular>
     <div class="panel panel-primary">
-      <div class="row margin-lr-0 panel-heading">
+      <div class="row margin-tlr-0 panel-heading">
         <div class="col-md-6 text-left padding0px pointer" ng-click="vm.sort('name')">
           <strong>Book Title</strong>
           <i class="fa fa-fw fa-sort fa-lg" ng-hide="vm.propToSortOn === 'name' || vm.propToSortOn === '-name'"></i>
