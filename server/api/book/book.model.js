@@ -17,8 +17,7 @@ var BookSchema = new mongoose.Schema({
     },
     gender: {
       type: String,
-      required: true,
-      index: true
+      required: true
     }
   },
   genre: {
@@ -28,8 +27,7 @@ var BookSchema = new mongoose.Schema({
   },
   publish_date: {
     type: Date,
-    required: true,
-    index: true
+    required: true
   }
 });
 

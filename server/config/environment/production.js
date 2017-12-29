@@ -19,6 +19,7 @@ module.exports = {
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://localhost/onemillionbooks'
+         // 'mongodb://localhost/onemillionbooks'
+         'mongodb://admin:passpass@ds133127.mlab.com:33127/million-books'
   }
 };
