@@ -38,6 +38,8 @@ Run `grunt build` for building and `grunt serve` for preview.
 
 ### Deployment and important information
  App is deployed on [Heroku](https://million-books.herokuapp.com/)
+ When the app deployed on Heroku is not visited often it might went into sleep state. Therefore, the initial request to 
+ the app URL might take around 15 seconds to wake up the app. 
  For the best UX it is highly recommended to run the app on your local environment. 
  The app is operating slightly slower on Heroku server, because I use free account with limited processing resources,
  like CPU and RAM memory. However the request to sort or to get a new documents from MongoDB is less than 1 second. 
