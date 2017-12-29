@@ -7,6 +7,11 @@ angular.module('oneMillionBooksApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          bookGenres: function(BooksService) {
+            return BooksService.genres().$promise;
+          }
+        }
       });
   });

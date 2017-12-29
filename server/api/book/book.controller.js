@@ -46,14 +46,14 @@ export function index(req, res) {
           break;
       }
   }
-/*
+
   if(req.query.gender && req.query.gender.length > 0){
     query["author.gender"] = req.query.gender;
   }
 
   if(req.query.genre && req.query.genre.length > 0){
-    query["genre"] = req.query.gender;
-  }*/
+    query["genre"] = req.query.genre;
+  }
 
   //Make sure limit and page are numbers and above 1
   if(!req.query.limit || parseFloat(req.query.limit) < 1){
@@ -86,4 +86,12 @@ export function index(req, res) {
       .catch(handleError(res));
 
   });
+}
+
+export function genres(req, res) {
+
+  Book.distinct('genre')
+    .execAsync()
+    .then(responseWithResult(res))
+    .catch(handleError(res));
 }

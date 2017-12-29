@@ -10,6 +10,13 @@
     }, {
       paged: {
         method:'GET'
+      },
+      genres: {
+        method: 'GET',
+        isArray: true,
+        params: {
+          id:'genres'
+        }
       }
     });
   };
