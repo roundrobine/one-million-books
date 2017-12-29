@@ -18,11 +18,13 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Node.js and npm](nodejs.org) Node 6.9.4, npm 3.10.10
 - [MongoDB](https://www.mongodb.org/) MongoDB 3.2.1
 
-#### Developing
+### Developing
 
 1. Run `npm install` to install server dependencies.
 
-2. Run `bower install` to install front-end dependencies.
+2. Run `bower install` to install front-end dependencies. 
+(During `bower install` it might ask which angular version should be selected from a list. 
+Just choose option 1 from the list.)
 
 3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
 
@@ -35,10 +37,11 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 7. Run `grunt serve` again. It should automatically open the client in your browser when ready.
 
-#### Deployment and important information
+### Deployment and important information
 
 - App is deployed on [Heroku](https://million-books.herokuapp.com/)
-- The app is operating slightly slower on Heroku server, because I use free account with limited processing resources,
+- For the best UX it is highly recommended to run the app on your local environment. 
+The app is operating slightly slower on Heroku server, because I use free account with limited processing resources,
 like CPU and RAM memory. However the request to sort or to get a new documents from MongoDB is less than 1 second. 
 The Mongo DB is depolyed to mLab on a free account limited to 500 mb disk space. 
 Because of this limitation there are 950418 books records in the mongoDB deployed on mLab. 
