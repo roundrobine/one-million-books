@@ -30,16 +30,17 @@
 
 5. Stop the server with `ctrl + c`
 
-6. Download locally one-million-books.zip from the root directory, extract books.json and import it into local MongoDB by executing:
- `mongoimport --db onemillionbooks-dev --collection books --drop --file full-path-to-the-file\one-million-books.json` 
+6. Download locally millionBooks.zip from [Google Drive](https://drive.google.com/drive/folders/1n6O8QKclrpwGuUKwLl2hcSGmxYmQsrss)
+, extract millionBooks.json and import it into local MongoDB by executing:
+ `mongoimport --db onemillionbooks-dev --collection books --drop --file full-path-to-the-file\millionBooks.json` 
  
 7. Run `grunt serve` again. It should automatically open the client in your browser when ready.
 Run `grunt build` for building and `grunt serve` for preview.
 
 ### Deployment and important information
- App is deployed on [Heroku](https://million-books.herokuapp.com/)
- When the app deployed on Heroku is not visited often it might went into sleep state. Therefore, the initial request to 
- the app URL might take around 15 seconds to wake up the app. 
+ App is deployed on [Heroku](https://million-books.herokuapp.com/).
+ When the app deployed on Heroku is not visited often it might go into a sleep state. Therefore, the initial request to 
+ the app URL may take around 15 seconds to wake up the app. 
  For the best UX it is highly recommended to run the app on your local environment. 
  The app is operating slightly slower on Heroku server, because I use free account with limited processing resources,
  like CPU and RAM memory. However the request to sort or to get a new documents from MongoDB is less than 1 second. 
