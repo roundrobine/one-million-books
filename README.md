@@ -1,5 +1,7 @@
 # one-million-books
 
+This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.1.1.
+
 ## Getting Started
 
 ### Prerequisites
@@ -11,39 +13,20 @@
 - [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
 - [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
 
-### Development Environment
-
-- [Node.js and npm](nodejs.org) Node 6.9.4, npm 3.10.10
-- [MongoDB](https://www.mongodb.org/) MongoDB 3.2.1
-
 ### Developing
 
 1. Run `npm install` to install server dependencies.
 
-2. Run `bower install` to install front-end dependencies. 
-(During `bower install` it might ask which angular version should be selected from a list. 
-Just choose option 1 from the list.)
+2. Run `bower install` to install front-end dependencies.
 
 3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
 
-4. Run `grunt serve` to start the development server and to create a local instance of the books database.
+4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
 
-5. Stop the server with `ctrl + c`
+## Build & development
 
-6. Download locally books.zip from the root directory, extract books.json and import it into local MongoDB by executing:
-`mongoimport --db onemillionbooks-dev --collection books --drop --file full-path-to-the-file\books.json`
+Run `grunt build` for building and `grunt serve` for preview.
 
-7. Run `grunt serve` again. It should automatically open the client in your browser when ready.
+## Testing
 
-### Deployment and important information
-
-- App is deployed on [Heroku](https://million-books.herokuapp.com/)
-- For the best UX it is highly recommended to run the app on your local environment. 
-The app is operating slightly slower on Heroku server, because I use free account with limited processing resources,
-like CPU and RAM memory. However the request to sort or to get a new documents from MongoDB is less than 1 second. 
-The Mongo DB is depolyed to mLab on a free account limited to 500 mb disk space. 
-Because of this limitation there are 950418 books records in the mongoDB deployed on mLab. 
-The local file that I have added to the root directory of this project has 1001056 records. 
-When the app is run on a local environment the average request time without soring is around 35 ms and with sorting is 
-around 200 ms. 
-
+Running `npm test` will run the unit tests with karma.

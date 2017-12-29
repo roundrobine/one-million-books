@@ -1,6 +1,6 @@
 .virtualRepeatdemoDeferredLoading {
   #vertical-container {
-    height: 475px;
+    height: 600px;
   }
 
   .repeated-item {
@@ -35,10 +35,9 @@
   padding: 0px;
 }
 
-.margin-tlr-0 {
+.margin-lr-0 {
   margin-left: 0px;
   margin-right: 0px;
-  margin-top: -1px;
 }
 
 .margin-b-20 {
@@ -48,6 +47,21 @@
 .sortArea{
   margin-bottom: 15px;
 }
+
+/*@media screen and (min-width: 760px) {
+  .txt-center {
+    text-align: center;
+  }
+  .titlePadingLeft25px{
+    padding-left: 25px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .titlePadingLeft25px_smallscreen{
+    padding-left: 25px !important;
+  }
+}*/
 
 .repeated-item {
   background-color: white;
