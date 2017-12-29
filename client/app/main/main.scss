@@ -70,7 +70,7 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (max-width: 1800px) and (min-width: 1400px) {
   .virtualRepeatdemoDeferredLoading {
     #vertical-container {
       height: 590px;
