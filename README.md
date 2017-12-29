@@ -31,7 +31,7 @@
 5. Stop the server with `ctrl + c`
 
 6. Download locally books.zip from the root directory, extract books.json and import it into local MongoDB by executing:
- `mongoimport --db onemillionbooks-dev --collection books --drop --file full-path-to-the-file\books.json` 
+ `mongoimport --db onemillionbooks-dev --collection books --drop --file full-path-to-the-file\million-books.json` 
  
 7. Run `grunt serve` again. It should automatically open the client in your browser when ready.
 Run `grunt build` for building and `grunt serve` for preview.
