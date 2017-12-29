@@ -6,25 +6,30 @@ var mongoosePaginate = require('mongoose-paginate');
 var BookSchema = new mongoose.Schema({
   name:{
     type: String,
-    required: true
+    required: true,
+    index: true
   },
   author:{
     name: {
       type: String,
-      required: true
+      required: true,
+      index: true
     },
     gender: {
       type: String,
-      required: true
+      required: true,
+      index: true
     }
   },
   genre: {
     type: String,
-    required: true
+    required: true,
+    index: true
   },
   publish_date: {
     type: Date,
-    required: true
+    required: true,
+    index: true
   }
 });
 
